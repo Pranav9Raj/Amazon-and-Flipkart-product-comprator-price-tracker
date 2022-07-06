@@ -55,15 +55,15 @@ def check_price():
 
     #Get the name and price of product from amazon website using soup.find()
     product_namea = soupa.find(id='productTitle').get_text()      #to get necessary text and not extra info
-    product_namef = soupf.find(class_='B_NuCI').get_text()
+    product_namef = soupf.find(class_='B_NuCI').get_text()        #to get necessary text and not extra info
 
     present_pricea = soupa.find(class_="a-price-whole").get_text()
     present_pricef = soupf.find(class_="_30jeq3 _16Jk6d").get_text()
-
+    #For Amazon
     present_pricea = present_pricea.replace(",", "")  #removes the ',' from presenr_price string
     present_pricea = present_pricea[0:5]              #extract the required number of characters from string
     present_pricea = float(present_pricea[0:5])       #returns floating point from string
-
+    #For Flipkart
     present_pricef = present_pricef.replace(",", "")  #removes the ',' from presenr_price string
     present_pricef = present_pricef.replace("₹", "")  #removes the '₹' from presenr_price string
     present_pricef = present_pricef[0:5]              #extract the required number of characters from string
